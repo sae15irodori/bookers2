@@ -11,6 +11,23 @@
   </head>
 
   <body>
+    <header>
+      <% if user_signed_in? %>
+        <a href=/>Bookers</a>
+        <li>
+          <%= link_to "Home", root_path %>
+        </li>
+        <li>
+          Usersﾍﾟｰｼﾞﾘﾝｸ後程
+        </li>
+        <li>
+          Booksﾍﾟｰｼﾞﾘﾝｸ後程
+        </li>
+        <li>
+          <%= link_to "Log out",destroy_user_session_path, method: :delete %>
+        </li>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
