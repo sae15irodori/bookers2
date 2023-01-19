@@ -3,7 +3,7 @@
 <!--投稿の一覧-->
 <h2>Books一覧</h2>
 
-  <!--%= @books.each do |book| %-->
+  <% @books.each do |book| %>
     <table>
       <thead>
         <tr>
@@ -15,12 +15,12 @@
 
       <tbody>
         <tr>
-          <td>画像</td>
+          <td>ﾕｰｻﾞｰ画像</td>
           <td>
-            <p>リンク</p>
+            <p><%= book.title %></p>
           </td>
-          <td></td>
+          <td><%= book.body %></td>
         </tr>
       </tbody>
     </table>
-  <!--% end %-->
+  <% end %>
