@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])#ﾃﾞﾌｫﾙﾄではname保存できないから保存できるようにした
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email])#
   end
   end
 end
