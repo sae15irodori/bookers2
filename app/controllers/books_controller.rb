@@ -6,14 +6,16 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+    @boook.user_id = current_user.id#ﾌｫｰﾑに入力済ﾃﾞｰﾀのﾕｰｻﾞidにﾛｸﾞｲﾝ中のﾕｰｻﾞｰid代入
     if @book.save                 #ﾃﾞｰﾀ保存されたら
-      redirect_to books_show_path(@book.id)#詳細ﾍﾟｰｼﾞへ飛ぶ
+       @book.user_id = current_user.id#詳細ﾍﾟｰｼﾞへ飛ぶ
     else                        #ﾃﾞｰﾀ保存されなかったら
       render :index#indexﾍﾟｰｼﾞを再表示
     end
   end
 
   def show
+    @book = Book.find(params[:id])
   end
 
   private
