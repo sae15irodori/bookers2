@@ -17,8 +17,7 @@
         <tr>
           <td>ﾕｰｻﾞｰ画像</td>
           <td>
-            <p><%= book.title %>
-            </p>
+            <p><%= link_to book.title, book_path(book.id) %> </p>
           </td>
           <td><%= book.body %></td>
         </tr>

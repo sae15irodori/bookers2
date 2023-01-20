@@ -1,11 +1,13 @@
+<%= render 'list', books: @book %>
+
 <h2>Book detail</h2>
 
 <table>
   <tbody>
     <tr>
       <td>
-        画像
-        <%= @book.user.name %>
+        画像<br>
+        <%= @book.user.name %><!--後程userの詳細ページへのﾘﾝｸにする-->
       </td>
       <td><%= @book.title %></td>
       <td><%= @book.body %></td>
