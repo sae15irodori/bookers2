@@ -8,7 +8,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id#ﾌｫｰﾑに入力済ﾃﾞｰﾀのﾕｰｻﾞidにﾛｸﾞｲﾝ中のﾕｰｻﾞｰid代入
     if @book.save                 #ﾃﾞｰﾀ保存されたら
-      redirect_to books_show_path#詳細ﾍﾟｰｼﾞへ飛ぶ
+      redirect_to books_show_path(@book.id)#詳細ﾍﾟｰｼﾞへ飛ぶ
     else                        #ﾃﾞｰﾀ保存されなかったら
       render :index#indexﾍﾟｰｼﾞを再表示
     end
