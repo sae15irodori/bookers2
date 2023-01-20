@@ -10,6 +10,7 @@ class BooksController < ApplicationController
     if @book.save                 #ﾃﾞｰﾀ保存されたら
       redirect_to books_show_path(@book.id)#詳細ﾍﾟｰｼﾞへ飛ぶ
     else                        #ﾃﾞｰﾀ保存されなかったら
+      @books = Book.all
       render :index#indexﾍﾟｰｼﾞを再表示
     end
   end
