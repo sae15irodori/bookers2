@@ -1,1 +1,15 @@
 <h2>Book detail</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td>
+        画像
+        <%= @book.user.name %>
+      </td>
+      <td><%= @book.title %></td>
+      <td><%= @book.body %></td>
+      <td><%= link_to "Edit", books_path %></td>
+    </tr>
+  </tbody>
+</table>
