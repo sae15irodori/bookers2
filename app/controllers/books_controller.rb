@@ -17,7 +17,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book= Book.find(params[:id])#特定の投稿ﾃﾞｰﾀのid取得してレコードを取得
+    @book = Book.find(params[:id])#特定の投稿ﾃﾞｰﾀのid取得してレコードを取得
   end
 
   def destroy
