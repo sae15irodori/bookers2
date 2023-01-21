@@ -1,3 +1,34 @@
-<%= render 'list', books: @book %>
-
 <h1>Editing Book</h1>
+
+<% if @book.errors.any? %><!--保存する時ﾃﾞｰﾀの存在なければ-->
+    <%= @book.errors.count %>error Please fill in the blanks
+    <ul>
+      <%= @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+<%= form_with model: @book do |f| %>
+<form>
+  <div class= "form-group">
+    <label for= "book_title">Title</label>
+    <%= f.text_field :title %>
+  </div>
+
+   <div class= "form-group">
+    <label for= "book_body">Opinion</label>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class = "form-group">
+    <%= f.submit 'Update Book' %>
+  </div>
+</form>
+<% end %>
+
+
+
+<%= link_to "Show", book_path(@book.id) %>
+|
+<%= link_to "Back", books_path %>

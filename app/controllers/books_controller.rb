@@ -17,7 +17,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book= Book.find(params[:id])#特定の投稿ﾃﾞｰﾀのid取得
+    @book= Book.find(params[:id])#特定の投稿ﾃﾞｰﾀのid取得してレコードを取得
   end
 
   def destroy
@@ -28,6 +28,16 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+  end
+
+  def update
+    @book = Book.find(params[:id])
+    if @book.update(book_params)     #データ保存されたら
+      flash[:id] = "You have updated book successfully."
+      redirect_to book_path(@book.id)
+    else                             #データ保存されなかったら
+      render :edit
+    end
   end
 
   private
