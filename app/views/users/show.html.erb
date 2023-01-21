@@ -1,3 +1,20 @@
+<h2>User info</h2>
+画像
+
+<table>
+  <tbody>
+    <tr>
+    <th>name</th>
+    <th><%= @user.name %></th>
+    </tr>
+
+    <tr>
+      <%= @user.introduction %>
+    </tr>
+  </tbody>
+</table>
+
+
 <h2>Books</h2>
 
 <% @books.each do |book| %>
@@ -14,7 +31,7 @@
       <tbody>
         <tr>
           <td>ﾕｰｻﾞｰ画像</td>
-          <td><%= link_to book.title, book_path(current_user.id) %></td>
+          <td><%= link_to book.title, book_path(current_user.id) %></td><!--bookの詳細ﾍﾟｰｼﾞへ-->
           <td><%= book.body %></td>
         </tr>
       </tbody>
