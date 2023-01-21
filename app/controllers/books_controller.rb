@@ -12,7 +12,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)#詳細ﾍﾟｰｼﾞへ飛ぶ
     else                        #ﾃﾞｰﾀ保存されなかったら
       @books = Book.all
-      render :index#indexﾍﾟｰｼﾞを再表示
+      render :index#indexﾍﾟｰｼﾞを表示
     end
   end
 

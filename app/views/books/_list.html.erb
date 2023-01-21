@@ -1,3 +1,13 @@
+ <!--ﾊﾞﾘﾃﾞｰｼｮﾝｴﾗｰ-->
+  <% if book.errors.any? %><!--保存する時ﾃﾞｰﾀの存在なければ--><!--book→@book-->
+    <%= book.errors.count %>error Please fill in the blanks<!--book→@book-->
+    <ul>
+      <%= book.errors.full_messages.each do |message| %><!--book→@book-->
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
 <h2>User info</h2>
 <%= image_tag user.get_profile_image %><!--user→@user-->
 
@@ -17,19 +27,7 @@
 <%= link_to "edit", edit_user_path(user.id) %><!--user→@user-->
 
 
-
-
 <h2>New book</h2>
-  <!--ﾊﾞﾘﾃﾞｰｼｮﾝｴﾗｰ-->
-  <% if book.errors.any? %><!--保存する時ﾃﾞｰﾀの存在なければ--><!--book→@book-->
-    <%= book.errors.count %>error Please fill in the blanks<!--book→@book-->
-    <ul>
-      <%= book.errors.full_messages.each do |message| %><!--book→@book-->
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
   <!--投稿ﾌｫｰﾑ-->
   <%= form_with model: book do |f| %><!--book→@book-->
     <h4>Title</h4>
