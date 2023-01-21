@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @book = Book.new
+    @user = current_user#部分テンプレへ渡す
   end
 
   def edit

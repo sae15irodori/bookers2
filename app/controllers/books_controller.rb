@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
   def index
     @books = Book.all
-    @book = Book.new#入力ﾌｫｰﾑ
+    @book = Book.new#入力ﾌｫｰﾑ(部分テンプレへ渡す)
+    @user = current_user#部分テンプレへ渡す
   end
 
   def create
@@ -18,6 +19,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])#特定の投稿ﾃﾞｰﾀのid取得してレコードを取得
+    @book_n = Book.new            #部分テンプレへ渡す
+    @user = User.find(params[:id])#部分テンプレへ渡す
   end
 
   def destroy

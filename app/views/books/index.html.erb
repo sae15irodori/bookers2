@@ -1,7 +1,19 @@
+ <!--ﾊﾞﾘﾃﾞｰｼｮﾝｴﾗｰ-->
+  <% if @book.errors.any? %><!--保存する時ﾃﾞｰﾀの存在なければ--><!--book→@book-->
+    <%= @book.errors.count %>error Please fill in the blanks<!--book→@book-->
+    <ul>
+      <%= @book.errors.full_messages.each do |message| %><!--book→@book-->
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= render 'list', {book: @book, user: @user} %><!--部分テンプレ-->
+
 <!--投稿の一覧-->
 <h2>Books一覧</h2>
 
-  
+
     <table>
       <thead>
         <tr>
@@ -23,4 +35,4 @@
         <% end %>
       </tbody>
     </table>
-  
+
