@@ -14,11 +14,11 @@
     <header>
       <% if user_signed_in? %>
         <a href=/>Bookers</a>
-        <li><!--Homeへのリンク-->
-          <%= link_to "Home", root_path %>
+        <li><!--user,showへのリンク-->
+          <%= link_to "Home", user_path(current_user.id) %>
         </li>
-        <li><!--Userへのリンク-->
-          Userへのリンク
+        <li><!--Usersへのリンク-->
+          <%= link_to "Users", users_path %>
         </li>
         <li><!--Booksへのリンク-->
           <%= link_to "Books", books_path %>
