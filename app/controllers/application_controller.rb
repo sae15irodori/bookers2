@@ -3,12 +3,12 @@ class ApplicationController < ActionController::Base
   #ユーザー認証・登録する前に(devise利用する前)↓のメソッド実行される
 
     def after_sign_in_path_for(resource)
-      about_path#ここは後程変更
+      user_path(current_user.id)#ログイン後ﾕｰｻﾞｰのshowﾍﾟｰｼﾞに遷移
     end
 
 
     def after_sign_aout_path_for(resource)
-      about_path#ここは後程変更
+      root_path#ログアウト後トップページへ遷移
     end
   protected
 
