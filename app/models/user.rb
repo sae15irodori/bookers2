@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :books, dependent: :destroy
 
-  has_one_attached :profile_image#カラム名を
+  has_one_attached :profile_image#カラム名を定義している
 
   def get_profile_image
     unless profile_image.attached?#ﾌﾟﾛﾌｨｰﾙ画像の設定ない場合noimage.jpgを表示する
