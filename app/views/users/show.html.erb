@@ -1,18 +1,4 @@
-<h2>User info</h2>
-<%= image_tag @user.get_profile_image %>
-
-<table>
-  <tbody>
-    <tr>
-      <th>name</th>
-      <th><%= @user.name %></th>
-    </tr>
-    <tr>
-      <th>introduction</th>
-      <th><%= @user.introduction %></th>
-    </tr>
-  </tbody>
-</table>
+<%= render 'books/list', {book: @book, user: @user} %><!--部分テンプレ-->
 
 
 <h2>Books</h2>

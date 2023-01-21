@@ -1,3 +1,20 @@
+<h2>User info</h2>
+<%= image_tag user.get_profile_image %><!--user→@user-->
+
+<table>
+  <tbody>
+    <tr>
+      <th>name</th>
+      <th><%= user.name %></th><!--user→@user-->
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= user.introduction %></th><!--user→@user-->
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to "edit", edit_user_path(user.id) %><!--user→@user-->
 
 
 
