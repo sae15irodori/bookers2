@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])#特定ﾕｰｻﾞｰidのﾚｺｰﾄﾞ取得
+    @user = User.find(params[:id])#特定ﾕｰｻﾞｰidのﾚｺｰﾄﾞ取得部分ﾃﾝﾌﾟﾚに渡す
     @books = @user.books
-    @book = Book.new
+    @book = Book.new#部分ﾃﾝﾌﾟﾚに渡す
   end
 
   def index
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-      params.require(:user).permit(:name, :introduction,)
+      params.require(:user).permit(:name, :introduction, :profile_image)
     end
 
 end
