@@ -17,7 +17,7 @@ class User < ApplicationRecord
   end
   
   #↓バリデーション
-  validates :name, length: {in: 2..20
   validates :introduction, length: {maximum: 50}
+  validates :name, length: { in: 2..50 }
 
 end
