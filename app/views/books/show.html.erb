@@ -8,7 +8,7 @@
   <tbody>
     <tr>
       <td>
-        画像<br>
+        <%= image_tag @book.user.get_profile_image %><br>
         <%= link_to @book.user.name, user_path(current_user.id) %><!--ｱｸｼｮﾝで特定IDのデータ取得.userﾓﾃﾞﾙからその投稿者name取得-->
       </td>
       <td><%= link_to @book.title, book_path(@book.id) %></td>

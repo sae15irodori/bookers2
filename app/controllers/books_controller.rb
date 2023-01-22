@@ -20,7 +20,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])#特定の投稿ﾃﾞｰﾀのid取得してレコードを取得
     @book_n = Book.new            #部分テンプレへ渡す
-    @user = current_user#部分テンプレへ渡す
+    @user = @book.user#部分テンプレへ渡す　投稿した人のﾕｰｻﾞ―情報
   end
 
   def destroy
