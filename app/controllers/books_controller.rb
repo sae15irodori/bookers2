@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :is_matching_login_user, only: [:edit, :update]#edit,updateｱｸｼｮﾝ実行前にﾛｸﾞｲﾝ中ﾕｰｻﾞｰじゃない場合は一覧ページへﾘﾀﾞｲﾚｸﾄする
+  before_action :is_matching_login_user, only: [:edit, :update, :destroy]#edit,updateｱｸｼｮﾝ実行前にﾛｸﾞｲﾝ中ﾕｰｻﾞｰじゃない場合は一覧ページへﾘﾀﾞｲﾚｸﾄする
   def index
     @books = Book.all
     @book = Book.new#入力ﾌｫｰﾑ(部分テンプレへ渡す)
@@ -52,8 +52,8 @@ class BooksController < ApplicationController
     end
 
     def is_matching_login_user
-      book_id = params[:id].to_i#URLの数字取得して格納
-        unless book_id == current_user.id#その数字がﾛｸﾞｲﾝ中ﾕｰｻﾞｰのidと等しくない場合
+      @book = Book.find(params[:id])#URLのid取得。そのidの投稿を取得
+        unless @book.user == current_user#その投稿がﾛｸﾞｲﾝ中ﾕｰｻﾞｰのidと等しくない場合
           redirect_to books_path#一覧ページへリダイレクト
         end
     end
