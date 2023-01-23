@@ -14,6 +14,8 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)#詳細ﾍﾟｰｼﾞへ飛ぶ
     else                        #ﾃﾞｰﾀ保存されなかったら
       @books = Book.all
+      #@book = Book.new#入力ﾌｫｰﾑ(部分テンプレへ渡す10行目で定義済だから不要)
+      @user = current_user#部分テンプレへ渡す
       render :index#indexﾍﾟｰｼﾞを表示
     end
   end
