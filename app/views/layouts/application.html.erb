@@ -12,35 +12,40 @@
 
   <body>
     <header>
-      <% if user_signed_in? %>
-        <a href=/>Bookers</a>
-        <li><!--user,showへのリンク-->
-          <%= link_to "Home", user_path(current_user.id) %>
-        </li>
-        <li><!--Usersへのリンク-->
-          <%= link_to "Users", users_path %>
-        </li>
-        <li><!--Booksへのリンク-->
-          <%= link_to "Books", books_path %>
-        </li>
-        <li><!--ﾛｸﾞｱｳﾄのリンク-->
-          <%= link_to "Log out",destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %><!--ログインしてない場合-->
-         <a href=/>Bookers</a>
-        <li><!--HOmeへのリンク-->
-          <%= link_to "Home", root_path %>
-        </li>
-        <li><!--Aboutへのリンク-->
-          <%= link_to "About", about_path %>
-        </li>
-        <li><!--ﾕｰｻﾞｰ登録へのリンク-->
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "Log in",user_session_path %>
-        </li>
-      <% end %>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          
+          <% if user_signed_in? %>
+            <a class="navbar-brand"href=/><span>Bookers</span></a>
+              <li><!--user,showへのリンク-->
+                <%= link_to "Home", user_path(current_user.id) %>
+              </li>
+              <li><!--Usersへのリンク-->
+                <%= link_to "Users", users_path %>
+              </li>
+              <li><!--Booksへのリンク-->
+                <%= link_to "Books", books_path %>
+              </li>
+              <li><!--ﾛｸﾞｱｳﾄのリンク-->
+                <%= link_to "Log out",destroy_user_session_path, method: :delete %>
+              </li>
+          <% else %><!--ログインしてない場合-->
+            <a href=/>Bookers</a>
+            <li><!--HOmeへのリンク-->
+              <%= link_to "Home", root_path %>
+            </li>
+            <li><!--Aboutへのリンク-->
+              <%= link_to "About", about_path %>
+            </li>
+            <li><!--ﾕｰｻﾞｰ登録へのリンク-->
+              <%= link_to "Sign up", new_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to "Log in",user_session_path %>
+            </li>
+          <% end %>
+        </container>
+      </nav>
     </header>
 
     <%= yield %>
