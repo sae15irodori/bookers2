@@ -12,11 +12,17 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          
-          <% if user_signed_in? %>
-            <a class="navbar-brand"href=/><span>Bookers</span></a>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark"><!--ﾍｯﾀﾞｰ背景-->
+        <div class="container"><!--header大枠-->
+          <!--ﾛｸﾞｲﾝ関係なく表示するbookersリンク-->
+          <a class="navbar-brand"href=/>
+            <span>Bookers</span>
+          </a>
+
+            <!--<!--ログイン済ならば(bookersより横の塊)-->
+            <% if user_signed_in? %>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul　class="navbar-nav ml-auto"><!--navbarのﾅﾋﾞはmargin,leftがautoになっているつまり右寄せ-->
               <li><!--user,showへのリンク-->
                 <%= link_to "Home", user_path(current_user.id) %>
               </li>
@@ -29,8 +35,9 @@
               <li><!--ﾛｸﾞｱｳﾄのリンク-->
                 <%= link_to "Log out",destroy_user_session_path, method: :delete %>
               </li>
+              </ul>
+            </div><!--collapse-->
           <% else %><!--ログインしてない場合-->
-            <a href=/>Bookers</a>
             <li><!--HOmeへのリンク-->
               <%= link_to "Home", root_path %>
             </li>
@@ -44,7 +51,7 @@
               <%= link_to "Log in",user_session_path %>
             </li>
           <% end %>
-        </container>
+        </div><!--container-->
       </nav>
     </header>
 
