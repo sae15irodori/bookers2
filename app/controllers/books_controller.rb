@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
   def index
     @books = Book.all
     @book = Book.new#入力ﾌｫｰﾑ(部分テンプレへ渡す)
@@ -30,10 +31,6 @@ class BooksController < ApplicationController
   end
 
   def edit
-    book_id = params[:id].to_i
-    unless book_id ==current_user.id
-      redirect_to books_path
-    end
     @book = Book.find(params[:id])
   end
 
@@ -50,6 +47,13 @@ class BooksController < ApplicationController
   private
     def book_params
       params.require(:book).permit(:title, :body,)
+    end
+
+    def is_matching_login_user
+      book_id = params[:id].to_i
+        unless book_id ==current_user.id
+          redirect_to books_path
+        end
     end
 
 end
