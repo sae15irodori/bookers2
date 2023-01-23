@@ -10,7 +10,7 @@
       <td>
         <%= link_to user_path(@book.user.id) do %>
           <%= image_tag @book.user.get_profile_image %>
-        <% end %>  
+        <% end %>
           <br>
         <%= link_to @book.user.name, user_path(current_user.id) %><!--ｱｸｼｮﾝで特定IDのデータ取得.userﾓﾃﾞﾙからその投稿者name取得-->
       </td>
