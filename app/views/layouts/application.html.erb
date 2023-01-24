@@ -18,11 +18,11 @@
           <a class="navbar-brand"href=/>
             <span>Bookers</span>
           </a>
-      
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" ara-controls="navbarNavDropdown" aria=expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        
+
             <!--<!--ログイン済ならば(bookersより横の塊)-->
             <% if user_signed_in? %>
             <div class="collapse navbar-collapse" id="navbarNavDropdown"><!--ﾄﾞﾛｯﾌﾟﾀﾞｳﾝと上のｺﾗﾌﾟｽ繋がってる-->
@@ -89,6 +89,13 @@
 
     <%= yield %>
 
-    <footer><p>CopyRight Infratop.inc</p></footer>
+    <footer>
+      <div class="container mt-5"><!--margin-top 3rem-->
+        <div class="row">
+          <div class="mx-auto"><!--左右のmargin auto-->
+            <p>CopyRight Infratop.inc</p></footer>
+          </div><!--mx-auto終了-->
+        </div><!--row終了-->
+      </div><!--container終了-->
   </body>
 </html>
