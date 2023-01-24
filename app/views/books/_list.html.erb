@@ -1,32 +1,49 @@
-<h2>User info</h2>
-<%= image_tag user.get_profile_image %><!--user→@user--><!--indexでは、ﾛｸﾞｲﾝ中ﾕｰｻﾞｰの情報/showでは、投稿者のﾕｰｻﾞｰ情報-->
+<div class="container px-5 px-sm-0"><!--左右padding5 smの場合0-->
+  <div class="row">
+    <div class="col-md-3">
+      <h2>User info</h2>
+        <%= image_tag user.get_profile_image %><!--user→@user--><!--indexでは、ﾛｸﾞｲﾝ中ﾕｰｻﾞｰの情報/showでは、投稿者のﾕｰｻﾞｰ情報-->
 
-<table>
-  <tbody>
-    <tr>
-      <th>name</th>
-      <th><%= user.name %></th><!--user→@user-->
-    </tr>
-    <tr>
-      <th>introduction</th>
-      <th><%= user.introduction %></th><!--user→@user-->
-    </tr>
-  </tbody>
-</table>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th>name</th>
+                <th><%= user.name %></th><!--user→@user-->
+              </tr>
+              <tr>
+                <th>introduction</th>
+                <th><%= user.introduction %></th><!--user→@user-->
+              </tr>
+            </tbody>
+          </table>
 
+        <div class="row">
+          <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %><!--user→@user-->
+            <i class ="fas fa-user-cog"></i><!--ロゴが枠の中にはいる-->
+          <% end %>
+        </div><!--ﾘﾝｸrow終了-->
 
-<%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %><!--user→@user-->
-  <i class ="fas fa-user-cog"></i><!--ロゴが枠の中にはいる-->
-<% end %>
+        <h2 class="mt-3">New book</h2><!--margin-top3-->
 
-<h2>New book</h2>
-  <!--投稿ﾌｫｰﾑ-->
-  <%= form_with model: book do |f| %><!--book→@book-->
-    <h4>Title</h4>
-    <%= f.text_field :title %>
+        <!--投稿ﾌｫｰﾑ-->
+        <form>
+          <%= form_with model: book do |f| %><!--book→@book-->
+            <div class="form-group">
+              <label for="book_title">Title</label>
+              <%= f.text_field :title, class:"form-control book_title" %>
+            </div>
 
-    <h4>Opinion</h4>
-    <%= f.text_area :body %>
+            <div class="form-group">
+              <label for="book_Opinion">Opinion</label>
+              <%= f.text_area :body, class:"form-control book_body" %>
+            </div>
+            
+            <div class="form-group">
+              <%= f.submit 'Create Book', class:"btn btn-success" %>
+            </div>
+          <% end %>
+        </form>
 
-    <%= f.submit 'Create Book', class: "btn btn-success" %>
-  <% end %>
+    </div><!--col終了-->
+  </div><!--row終了-->
+</div><!--container終了-->
