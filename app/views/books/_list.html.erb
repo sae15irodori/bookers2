@@ -1,5 +1,4 @@
-<div class="container px-5 px-sm-0"><!--左右padding5 smの場合0-->
-  <div class="row">
+
     <div class="col-md-3">
       <h2>User info</h2>
         <%= image_tag user.get_profile_image %><!--user→@user--><!--indexでは、ﾛｸﾞｲﾝ中ﾕｰｻﾞｰの情報/showでは、投稿者のﾕｰｻﾞｰ情報-->
@@ -37,7 +36,7 @@
               <label for="book_Opinion">Opinion</label>
               <%= f.text_area :body, class:"form-control book_body" %>
             </div>
-            
+
             <div class="form-group">
               <%= f.submit 'Create Book', class:"btn btn-success" %>
             </div>
@@ -45,5 +44,3 @@
         </form>
 
     </div><!--col終了-->
-  </div><!--row終了-->
-</div><!--container終了-->
