@@ -27,7 +27,7 @@
         <!--投稿ﾌｫｰﾑ-->
 
         <%= form_with model: book do |f| %><!--book→@book-->
-          <form>
+          
             <div class="form-group">
               <label for="book_title">Title</label>
               <%= f.text_field :title, class:"form-control book_title" %>
@@ -41,7 +41,7 @@
             <div class="form-group">
               <%= f.submit 'Create Book', class:"btn btn-success" %>
             </div>
-          </form>
+          
         <% end %>
 
     </div><!--col終了-->
