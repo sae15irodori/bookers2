@@ -3,4 +3,6 @@ class Book < ApplicationRecord
 
   validates :title, presence: true#バリデーション
   validates :body, presence: true, length: {maximum: 200}#バリデーション
+
+  mount_uploader :video, VideoUploader
 end
